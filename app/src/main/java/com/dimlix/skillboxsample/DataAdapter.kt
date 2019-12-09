@@ -1,12 +1,13 @@
 package com.dimlix.skillboxsample
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class DataAdapter(private val data: List<String>) :
+class DataAdapter(private val data: List<UserData>) :
     RecyclerView.Adapter<DataAdapter.DataViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder {
@@ -25,8 +26,9 @@ class DataAdapter(private val data: List<String>) :
 
         private val _title: TextView = itemView as TextView
 
-        fun bind(data: String) {
-            _title.text = data
+        @SuppressLint("SetTextI18n")
+        fun bind(data: UserData) {
+            _title.text = "${data.firstName} ${data.lastName}"
         }
 
     }
