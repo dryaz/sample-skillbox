@@ -1,4 +1,4 @@
-package com.dimlix.skillboxsample.users.ui
+package com.dimlix.skillboxsample.users.ui.list
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.dimlix.skillboxsample.R
 import com.dimlix.skillboxsample.users.data.UserData
+import com.dimlix.skillboxsample.users.ui.details.UserDetailsActivity
 import com.squareup.picasso.Picasso
 
 class DataAdapter(private val data: List<UserData>) :
@@ -35,6 +36,10 @@ class DataAdapter(private val data: List<UserData>) :
         fun bind(data: UserData) {
             _title.text = "${data.firstName} ${data.lastName}"
             Picasso.get().load(data.avatarUrl).into(_pic)
+
+            itemView.setOnClickListener {
+                UserDetailsActivity.start(itemView.context, data.id)
+            }
         }
 
     }

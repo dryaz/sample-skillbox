@@ -2,7 +2,7 @@ package com.dimlix.skillboxsample.users.data
 
 import com.google.gson.annotations.SerializedName
 
-data class UserResponse(
+data class UserListResponse(
     @SerializedName("data")
-    val data: UserData
+    val data: List<UserData>
 )

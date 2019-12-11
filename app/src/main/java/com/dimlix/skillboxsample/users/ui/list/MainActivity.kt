@@ -1,4 +1,4 @@
-package com.dimlix.skillboxsample.users.ui
+package com.dimlix.skillboxsample.users.ui.list
 
 import android.os.Bundle
 import android.widget.Toast
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dimlix.skillboxsample.BuildConfig
 import com.dimlix.skillboxsample.R
 import com.dimlix.skillboxsample.users.data.UserApi
-import com.dimlix.skillboxsample.users.data.UserResponse
+import com.dimlix.skillboxsample.users.data.UserListResponse
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 import okhttp3.OkHttpClient
@@ -44,17 +44,17 @@ class MainActivity : AppCompatActivity() {
 
         _userApi = retrofit.create(UserApi::class.java)
 
-        _userApi.getUsers().enqueue(object : Callback<UserResponse> {
-            override fun onFailure(call: Call<UserResponse>, t: Throwable) {
+        _userApi.getUsers().enqueue(object : Callback<UserListResponse> {
+            override fun onFailure(call: Call<UserListResponse>, t: Throwable) {
                 Toast.makeText(this@MainActivity, t.localizedMessage, Toast.LENGTH_SHORT).show()
             }
 
             override fun onResponse(
-                call: Call<UserResponse>,
-                response: Response<UserResponse>
+                call: Call<UserListResponse>,
+                listResponse: Response<UserListResponse>
             ) {
                 listItems.adapter =
-                    DataAdapter(response.body()!!.data)
+                    DataAdapter(listResponse.body()!!.data)
             }
 
         })
