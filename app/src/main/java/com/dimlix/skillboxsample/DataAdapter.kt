@@ -32,7 +32,6 @@ class DataAdapter(private val data: List<UserData>) :
         @SuppressLint("SetTextI18n")
         fun bind(data: UserData) {
             _title.text = "${data.firstName} ${data.lastName}"
-            // Oops, image will be empty, debug!
             Picasso.get().load(data.avatarUrl).into(_pic)
         }
 
