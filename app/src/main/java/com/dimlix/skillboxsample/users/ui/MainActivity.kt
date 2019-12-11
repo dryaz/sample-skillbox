@@ -1,9 +1,13 @@
-package com.dimlix.skillboxsample
+package com.dimlix.skillboxsample.users.ui
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.dimlix.skillboxsample.BuildConfig
+import com.dimlix.skillboxsample.R
+import com.dimlix.skillboxsample.users.data.UserApi
+import com.dimlix.skillboxsample.users.data.UserResponse
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 import okhttp3.OkHttpClient
@@ -49,7 +53,8 @@ class MainActivity : AppCompatActivity() {
                 call: Call<UserResponse>,
                 response: Response<UserResponse>
             ) {
-                listItems.adapter = DataAdapter(response.body()!!.data)
+                listItems.adapter =
+                    DataAdapter(response.body()!!.data)
             }
 
         })

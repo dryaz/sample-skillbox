@@ -1,4 +1,4 @@
-package com.dimlix.skillboxsample
+package com.dimlix.skillboxsample.users.ui
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.dimlix.skillboxsample.R
+import com.dimlix.skillboxsample.users.data.UserData
 import com.squareup.picasso.Picasso
 
 class DataAdapter(private val data: List<UserData>) :

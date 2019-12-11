@@ -1,4 +1,4 @@
-package com.dimlix.skillboxsample
+package com.dimlix.skillboxsample.users.data
 
 import com.google.gson.annotations.SerializedName
 
